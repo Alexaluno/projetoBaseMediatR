@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "New User";
+}
+
+<h1>Users</h1>
+ @model Site.Domain.Users.Commands.Insert.Request
+
+<form asp-action="New" method="post" class="form-horizontal" role="form">
+    @Html.ValidationSummary()
+    Name : @Html.TextAreaFor(u => u.Name)
+    E-mail : @Html.TextAreaFor(c => c.Email)
+
+    <input type="submit" value="submit" />
+</form>
+<a href="/users">Back</a>
+
