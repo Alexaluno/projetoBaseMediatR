@@ -22,7 +22,7 @@ namespace Site.Pipelines
         {
             var failures = this._validators.Select(v => v.Validate(request));
             var errors = failures.SelectMany(result => result.Errors).Where(f => f != null);
-            return failures.Any() ? Erros(errors) : next();
+            return errors.Any() ? Erros(errors) : next();
         }
 
         private static Task<TResponse> Erros(IEnumerable<ValidationFailure> validations)
